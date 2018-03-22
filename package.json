@@ -1,11 +1,9 @@
 {
   "name": "webpack-modules-export",
   "version": "1.0.0",
-  "description": "用于静态化依赖文件的webpack插件，主要用于spa单页应用的前端配置文件生成",
+  "description": "",
   "main": "webpackPlugin.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "keywords": [
     "webpack",
     "modules",
