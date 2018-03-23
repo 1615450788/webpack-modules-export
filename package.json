@@ -4,7 +4,9 @@
   "description": "",
   "main": "webpackPlugin.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "npm@latest": "npm version patch && cnpm publish && git push && git push origin --tags",
+    "npm@beta": "npm version prerelease && npm publish --tag=beta && git push && git push origin --tags"
   },
   "keywords": [
     "webpack",
