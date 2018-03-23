@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Import = require('./lib/import');
+const methods = require('./lib/methods');
 
 function HelloWorldPlugin(options) {
     // 使用配置（options）设置插件实例
@@ -17,8 +17,8 @@ HelloWorldPlugin.prototype.apply = function(compiler) {
                         let menu=fs.readFileSync(filepath).toString();
                         let variable=Import.match(menu);
                         if(variable&&variable.length){
-                            let reg=Import.variable(variable);
-                            menu=Import.replace(menu);
+                            let reg=methods.variable(variable);
+                            menu=methods.replace(menu);
                             menu=menu.replace(reg,'""').replace(/""""/g,'""');
                         }
                         if(menu instanceof Array){
