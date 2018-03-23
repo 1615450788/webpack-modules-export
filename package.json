@@ -1,11 +1,11 @@
 {
   "name": "webpack-modules-export",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "",
   "main": "webpackPlugin.js",
   "scripts": {
     "test": "mocha",
-    "npm@latest": "npm version patch && cnpm publish && git push && git push origin --tags",
+    "npm@latest": "npm version patch && npm publish && git push && git push origin --tags",
     "npm@beta": "npm version prerelease && npm publish --tag=beta && git push && git push origin --tags"
   },
   "keywords": [
