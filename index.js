@@ -15,7 +15,7 @@ HelloWorldPlugin.prototype.apply = function(compiler) {
                 if(module&&module.resource&&(module.resource.indexOf(this.fileName)>=0)){
                     module.fileDependencies.forEach((filepath)=>{
                         let menu=fs.readFileSync(filepath).toString();
-                        let variable=Import.match(menu);
+                        let variable=methods.match(menu);
                         if(variable&&variable.length){
                             let reg=methods.variable(variable);
                             menu=methods.replace(menu);
