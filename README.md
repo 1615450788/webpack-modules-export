@@ -34,10 +34,13 @@ module.exports = {
 - fileName
     - 类型：`String` 
     - 默认值：`menu.js`
+
     需要导出的文件路径或文件名
+    
 - outputName
    - 类型：`String` 
    - 默认值：`menu.json`
+   
    导出后的文件名
 
 ## 联系方式
