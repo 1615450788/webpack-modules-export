@@ -1,6 +1,14 @@
 # webpack-modules-export
   用于静态化依赖文件的webpack插件，主要用于spa单页应用的前端配置文件生成
 
+## 单元测试
+  单元测试基于`mocha`和`assert`，对核心文件解析模块进行了全面的测试
+  
+  运行方法：
+```markdown
+npm run test
+```
+
 ## 安装方式
 ```
 npm install webpack-modules-export
