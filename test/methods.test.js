@@ -123,6 +123,14 @@ describe('methods', function() {
         it('importName',function () {
             let input=`/resource/certificate/importCertificate`;
             let result='/resource/certificate/importCertificate';
+            assert.deepEqual(methods.replace(input),result);
+        });
+        it('require("name")',function () {
+            let input=`
+                require("name")
+                name
+            `;
+            let result='name';
             assert.deepEqual(methods.replace(input).replace(/\s|\n/g,''),result);
         });
         it('undefined',function () {
