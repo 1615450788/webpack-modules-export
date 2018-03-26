@@ -120,6 +120,11 @@ describe('methods', function() {
             let result='';
             assert.deepEqual(methods.replace(input).replace(/\s|\n/g,''),result);
         });
+        it('importName',function () {
+            let input=`/resource/certificate/importCertificate`;
+            let result='/resource/certificate/importCertificate';
+            assert.deepEqual(methods.replace(input).replace(/\s|\n/g,''),result);
+        });
         it('undefined',function () {
             let input=undefined;
             let result=undefined;
