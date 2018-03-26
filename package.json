@@ -2,7 +2,7 @@
   "name": "webpack-modules-export",
   "version": "1.0.3",
   "description": "",
-  "main": "webpackPlugin.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha",
     "npm@latest": "npm version patch && npm publish && git push && git push origin --tags",
