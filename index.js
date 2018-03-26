@@ -8,7 +8,7 @@ function HelloWorldPlugin(options) {
 }
 
 HelloWorldPlugin.prototype.apply = function(compiler) {
-    compiler.plugin('emit', function(compilation, callback){
+    compiler.plugin('emit', (compilation, callback)=>{
         let menuObj=[],menuText='';
         compilation.chunks.forEach((chunk)=>{
             chunk.modules.forEach((module)=>{
@@ -17,10 +17,11 @@ HelloWorldPlugin.prototype.apply = function(compiler) {
                         let menu=fs.readFileSync(filepath).toString();
                         let variable=methods.match(menu);
                         if(variable&&variable.length){
-                            let reg=methods.variable(variable);
+                            let reg=methods.variableReg(variable);
                             menu=methods.replace(menu);
                             menu=menu.replace(reg,'""').replace(/""""/g,'""');
                         }
+                        menu=eval(menu);
                         if(menu instanceof Array){
                             menuObj=menuObj.concat(menu);
                         }else if(menu instanceof Object){
