@@ -16,12 +16,17 @@ HelloWorldPlugin.prototype.apply = function(compiler) {
                     module.fileDependencies.forEach((filepath)=>{
                         let menu=fs.readFileSync(filepath).toString();
                         let variable=methods.match(menu);
+                        menu=methods.replace(menu);
                         if(variable&&variable.length){
                             let reg=methods.variableReg(variable);
-                            menu=methods.replace(menu);
                             menu=menu.replace(reg,'""').replace(/""""/g,'""');
                         }
-                        menu=eval(menu);
+                        try{
+                            menu=eval(menu);
+                        }catch(e){
+                            console.log(`文件${filepath}在转对象时(eval)出错`);
+                            console.log(menu);
+                        }
                         if(menu instanceof Array){
                             menuObj=menuObj.concat(menu);
                         }else if(menu instanceof Object){
