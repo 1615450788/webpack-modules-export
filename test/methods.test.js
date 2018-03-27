@@ -66,28 +66,28 @@ describe('methods', function() {
             let input=[
                 'import mangerHome1 from ',
             ];
-            let result=/mangerHome1/g;
+            let result=/.+(mangerHome1)[^"': a-zA-Z0-9]+/g;
             assert.deepEqual(methods.variableReg(input),result);
         });
         it('["import * as package from "]',function () {
             let input=[
                 'import * as mangerHome2 from ',
             ];
-            let result=/mangerHome2/g;
+            let result=/.+(mangerHome2)[^"': a-zA-Z0-9]+/g;
             assert.deepEqual(methods.variableReg(input),result);
         });
         it('["import {package} from "]',function () {
             let input=[
                 'import {mangerHome3} from ',
             ];
-            let result=/mangerHome3/g;
+            let result=/.+(mangerHome3)[^"': a-zA-Z0-9]+/g;
             assert.deepEqual(methods.variableReg(input),result);
         });
         it('["import { package,package } from "]',function () {
             let input=[
-                'import { mangerHome4,mangerHome5 } from ',
+                'import { mangerHome4,mangerHome5,mangerHome6 } from ',
             ];
-            let result=/mangerHome4|mangerHome5/g;
+            let result=/.+(mangerHome4|mangerHome5|mangerHome6)[^"': a-zA-Z0-9]+/g;
             assert.deepEqual(methods.variableReg(input),result);
         });
         it('[]',function () {
@@ -126,11 +126,10 @@ describe('methods', function() {
             assert.deepEqual(methods.replace(input),result);
         });
         it('require("name")',function () {
-            let input=`
-                require("name")
-                name
-            `;
-            let result='name';
+            let input=`{
+                name:require("name")
+            }`;
+            let result='{name:""}';
             assert.deepEqual(methods.replace(input).replace(/\s|\n/g,''),result);
         });
         it('undefined',function () {
