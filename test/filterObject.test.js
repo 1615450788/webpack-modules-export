@@ -10,6 +10,7 @@ describe('filterObject',function () {
                 {
                     name:'a',
                     vue:a,
+                    data:["a",a]
                 },
                 {
                     name:'b',
