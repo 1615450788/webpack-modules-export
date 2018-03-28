@@ -24,9 +24,9 @@ describe('filterObject',function () {
     })
     it('require',function () {
         let input=`
-            let a = require('../custom/amp/monitorAlarm/homeIndex/mangerHome.vue')
-            var b =require('../custom/amp/monitorAlarm/homeIndex/mangerHome.vue')
-            const c=require('../custom/amp/monitorAlarm/homeIndex/mangerHome.vue')
+            let a = require('../custom/amp/monitorAlarm/homeIndex/mangerHome.vue');
+            var b =require('../custom/amp/monitorAlarm/homeIndex/mangerHome.vue');
+            const c=require('../custom/amp/monitorAlarm/homeIndex/mangerHome.vue');
             const {d,e,f}=r => require.ensure([], () => r(require('../pages/Breadcrumb.vue')), 'home');
             export default [
                 {
