@@ -7,7 +7,7 @@ describe('methods', function() {
             import mangerHome1 from '../custom/amp/monitorAlarm/homeIndex/mangerHome.vue'
             `;
             let result=[
-                'import mangerHome1 from ',
+                'mangerHome1',
             ];
             assert.deepEqual(methods.match(input),result);
         });
@@ -16,7 +16,7 @@ describe('methods', function() {
             import * as mangerHome2 from '../custom/amp/monitorAlarm/homeIndex/mangerHome.vue'
             `;
             let result=[
-                'import * as mangerHome2 from ',
+                'mangerHome2',
             ];
             assert.deepEqual(methods.match(input),result);
         });
@@ -25,7 +25,7 @@ describe('methods', function() {
                 import {mangerHome3} from '../custom/amp/monitorAlarm/homeIndex/mangerHome.vue'
             `;
             let result=[
-                'import {mangerHome3} from ',
+                'mangerHome3',
             ];
             assert.deepEqual(methods.match(input),result);
         });
@@ -34,7 +34,8 @@ describe('methods', function() {
                 import { mangerHome4,mangerHome5 } from '../custom/amp/monitorAlarm/alarmEventStage/alarmEventStageListSettings.js'
             `;
             let result=[
-                'import { mangerHome4,mangerHome5 } from ',
+                'mangerHome4',
+                'mangerHome5',
             ];
             assert.deepEqual(methods.match(input),result);
         });
@@ -42,52 +43,31 @@ describe('methods', function() {
             let input=`
                 import '../custom/amp/monitorAlarm/homeIndex/mangerHome.vue'
             `;
-            let result=null;
+            let result=[''];
             assert.deepEqual(methods.match(input),result);
         });
         it('[]',function () {
             let input=[];
-            let result=undefined;
+            let result=[];
             assert.deepEqual(methods.match(input),result);
         });
         it('undefined',function () {
             let input=undefined;
-            let result=undefined;
+            let result=[];
             assert.deepEqual(methods.match(input),result);
         });
         it('{}',function () {
             let input={};
-            let result=undefined;
+            let result=[];
             assert.deepEqual(methods.match(input),result);
         });
     });
     describe('.variableReg',function () {
         it('["import package from "]', function() {
             let input=[
-                'import mangerHome1 from ',
+                'mangerHome1',
             ];
             let result=/.+(mangerHome1)[^"': a-zA-Z0-9]+/g;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-        it('["import * as package from "]',function () {
-            let input=[
-                'import * as mangerHome2 from ',
-            ];
-            let result=/.+(mangerHome2)[^"': a-zA-Z0-9]+/g;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-        it('["import {package} from "]',function () {
-            let input=[
-                'import {mangerHome3} from ',
-            ];
-            let result=/.+(mangerHome3)[^"': a-zA-Z0-9]+/g;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-        it('["import { package,package } from "]',function () {
-            let input=[
-                'import { mangerHome4,mangerHome5,mangerHome6 } from ',
-            ];
-            let result=/.+(mangerHome4|mangerHome5|mangerHome6)[^"': a-zA-Z0-9]+/g;
             assert.deepEqual(methods.variableReg(input),result);
         });
         it('[]',function () {
