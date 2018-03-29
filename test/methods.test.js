@@ -67,7 +67,7 @@ describe('methods', function() {
             let input=[
                 'mangerHome1',
             ];
-            let result=/.+(mangerHome1)[^"': a-zA-Z0-9]+/g;
+            let result=/.+(mangerHome1)((?=\.).+|[^"': a-zA-Z0-9]+)/g;
             assert.deepEqual(methods.variableReg(input),result);
         });
         it('[]',function () {
