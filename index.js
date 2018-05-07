@@ -1,7 +1,7 @@
 const fs = require('fs');
 const filterObject = require('./lib/filterObject');
 
-function HelloWorldPlugin(options) {
+function HelloWorldPlugin(options={}) {
     // 使用配置（options）设置插件实例
     this.fileName=options.fileName||'menu.js';
     this.outputName=options.outputName||'menu.json';
