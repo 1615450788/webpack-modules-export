@@ -62,30 +62,6 @@ describe('methods', function() {
             assert.deepEqual(methods.match(input),result);
         });
     });
-    describe('.variableReg',function () {
-        it('["import package from "]', function() {
-            let input=[
-                'mangerHome1',
-            ];
-            let result=/.+(mangerHome1)((?=\.).+|[^"': a-zA-Z0-9]+)/g;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-        it('[]',function () {
-            let input=[];
-            let result=undefined;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-        it('undefined',function () {
-            let input=undefined;
-            let result=undefined;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-        it('{}',function () {
-            let input={};
-            let result=undefined;
-            assert.deepEqual(methods.variableReg(input),result);
-        });
-    });
     describe('.replace',function () {
         it('export default', function() {
             let input=`export default[{a:123,b:12312}]export default{a:123,b:12312}`;
