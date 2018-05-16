@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "npm@latest": "npm version patch && npm publish && git push && git push origin --tags",
-    "npm@beta": "npm version prerelease && npm publish --tag=beta && git push && git push origin --tags"
+    "npm@*+.0.0": "npm version major&& npm publish && git push && git push origin --tags",
+    "npm@0.*+.0": "npm version minor&& npm publish && git push && git push origin --tags",
+    "npm@0.0.*+": "npm version patch && npm publish && git push && git push origin --tags",
+    "npm@0.0.0-*+": "npm version prerelease && npm publish --tag=beta && git push && git push origin --tags"
   },
   "keywords": [
     "webpack",
